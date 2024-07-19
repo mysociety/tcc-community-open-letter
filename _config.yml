@@ -1,0 +1,24 @@
+title: Community Open Letter Signatories
+baseurl: "/tcc-community-open-letter" # the subpath of your site, e.g. /blog
+url: "https://mysociety.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+host: 0.0.0.0
+
+exclude:
+  - .browserlistrc
+  - .ruby-version
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - node_modules/
+  - README.md
+  - script/
+  - ssl/
+  - vendor/
+
+sass:
+  sourcemap: never
+  load_paths:
+    - static/vendor/
