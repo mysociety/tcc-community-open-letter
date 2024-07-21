@@ -2,6 +2,45 @@
 layout: default
 ---
 
+<div class="bg-green-100 py-3">
+    <div class="container">
+        {% include tcc-logo.html width="8rem" height="auto" %}
+    </div>
+</div>
+
 <div class="container py-4 py-md-5">
-    <h1>Homepage</h1>
+    <h1>Our 2024 Community Open Letter</h1>
+    <p class="fs-5 mw-45rem my-4">In 2024, over 500 community groups signed <a href="https://www.theclimatecoalition.org/community-open-letter">our community open letter to the UK’s party leaders</a>, calling for urgent action on climate and nature. Maybe you were one of them!</p>
+    <p class="fs-5 mw-45rem my-4">We’ll soon display this data in our <a href="https://localintelligencehub.com">Local Intelligence Hub</a>, which helps the UK’s climate and nature movement collaborate and coordinate. <strong>But first, we need to know which constituencies each signatory works in.</strong></p>
+    <h2 class="mt-4 mt-sm-5">Help us by confirming your details</h2>
+    <p class="fs-5 mw-45rem my-4">The table below shows the constituencies we think each signatory covers or works in. Can you search for your organisation and <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwTS3Mn9g5EOCBcFPF1uCXTbIJ69Tu5NA2kjUR0n-Hc1Knkw/viewform?usp=pp_url&entry.496009622={{ 'https://pages.mysociety.org/tcc-community-open-letter/' | url_encode }}">let us know if we need to add, change, or remove any constituencies</a> associated with your organisation?</p>
+    <div class="my-4 my-sm-5">
+        <label for="search" class="form-label fs-5 mb-3">Search by signatory organisation, constituency, or MP</label>
+        <div class="search-input search-input-lg mw-35rem">
+            {% include search.html %}
+            <input type="search" id="search" class="form-control form-control-lg">
+        </div>
+    </div>
+    <table class="table my-4 my-sm-5 w-100" id="signatories">
+        <thead>
+            <tr>
+                <th scope="col">Signatory organisation</th>
+                <th scope="col">Constituency</th>
+                <th scope="col">MP</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for row in site.data.signatories %}
+            <tr>
+                <td>{{ row.signatory}}</td>
+                <td>{{ row.constituency_name }}</td>
+                <td>{{ row.mp_name }}, {{ row.mp_party }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+    <div class="bg-green-100 p-3 p-sm-4 rounded mw-45rem">
+        <h2 class="mb-4 h4">Do we have the wrong location for your group?</h2>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwTS3Mn9g5EOCBcFPF1uCXTbIJ69Tu5NA2kjUR0n-Hc1Knkw/viewform?usp=pp_url&entry.496009622={{ 'https://pages.mysociety.org/tcc-community-open-letter/' | url_encode }}" class="btn btn-primary btn-lg">Let us know</a>
+    </div>
 </div>

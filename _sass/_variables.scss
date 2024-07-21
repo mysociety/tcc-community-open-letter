@@ -1,5 +1,70 @@
 // Color system
 
+$color-tcc-robin-red: #e84d2e;
+$color-tcc-autumn-orange: #ed6832;
+$color-tcc-honeysuckle-yellow: #fec835;
+$color-tcc-peak-district-green: #bcd685;
+$color-tcc-heart-green: #89c489;
+$color-tcc-seafoam-green: #1aa680;
+$color-tcc-sherwood-forest-green: #073a41;
+$color-tcc-kingfisher-blue: #21a8e0;
+$color-tcc-windermere-blue: #202448;
+$color-tcc-ben-nevis-grey: #1d1d1b;
+
+$color-darker-seafoam: #068670; // like seafoam-green, but 4.51 contrast with #fff
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$red: darken($color-tcc-robin-red, 10%);
+
+$orange: $color-tcc-autumn-orange;
+
+$yellow: $color-tcc-honeysuckle-yellow;
+
+$blue: $color-tcc-kingfisher-blue;
+$blue-500: $color-tcc-kingfisher-blue;
+$blue-600: mix($color-tcc-windermere-blue, $color-tcc-kingfisher-blue, 25%);
+$blue-700: mix($color-tcc-windermere-blue, $color-tcc-kingfisher-blue, 50%);
+$blue-800: mix($color-tcc-windermere-blue, $color-tcc-kingfisher-blue, 75%);
+$blue-900: $color-tcc-windermere-blue;
+
+$green: $color-tcc-heart-green;
+$green-100: mix(#fff, $color-tcc-peak-district-green, 66.66%);
+$green-200: mix(#fff, $color-tcc-peak-district-green, 33.33%);
+$green-300: $color-tcc-peak-district-green;
+$green-400: mix($color-tcc-heart-green, $color-tcc-peak-district-green, 50%);
+$green-500: $color-tcc-heart-green;
+$green-600: darken($color-tcc-heart-green, 10%);
+$green-700: darken($color-tcc-heart-green, 25%);
+$green-800: darken($color-tcc-heart-green, 45%);
+$green-900: darken($color-tcc-heart-green, 55%);
+
+$teal: $color-tcc-seafoam-green;
+$teal-100: mix($white, $color-tcc-seafoam-green, 80%);
+$teal-200: mix($white, $color-tcc-seafoam-green, 60%);
+$teal-300: mix($white, $color-tcc-seafoam-green, 40%);
+$teal-400: mix($white, $color-tcc-seafoam-green, 20%);
+$teal-500: $color-tcc-seafoam-green;
+$teal-600: $color-darker-seafoam;
+$teal-700: mix($color-tcc-sherwood-forest-green, $color-darker-seafoam, 50%);
+$teal-800: $color-tcc-sherwood-forest-green;
+$teal-900: mix($black, $color-tcc-sherwood-forest-green, 40%);
+
+$primary: $color-darker-seafoam;
+$secondary: $gray-600;
+$success: $color-tcc-heart-green;
+$dark: $color-tcc-sherwood-forest-green;
+
 // Options
 
 $enable-shadows: true;
@@ -9,17 +74,52 @@ $enable-negative-margins: true;
 
 // Spacing
 
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+  8: $spacer * 8
+);
+
 // Position
 
+$position-values: (
+  0: 0,
+  50: 50%,
+  95: 95%,
+  100: 100%
+);
+
 // Body
+
+$body-bg: $white;
+$body-color: $color-tcc-sherwood-forest-green;
 
 // Utilities maps
 
 // Links
 
+$link-color: $color-darker-seafoam;
+$link-shade-percentage: 20%;
+$link-hover-color: shift-color($link-color, $link-shade-percentage);
+
 // Paragraphs
 
 // Grid breakpoints
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
 
 // Grid containers
 
@@ -29,7 +129,43 @@ $enable-negative-margins: true;
 
 // Components
 
+$border-color: $gray-500; // up from 300
+
 // Typography
+
+$font-family-sans-serif: "Public Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+$font-size-base: 1rem;
+$font-size-sm: $font-size-base * .875;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  7: $font-size-sm,
+  8: $font-size-base * 0.75,
+  9: $font-size-base * 0.66,
+  10: $font-size-base * 0.5
+);
+
+$headings-font-weight: 800;
+$headings-line-height: 1.1;
+
+$display-font-weight: 800;
+
+$lead-font-weight: 500;
+
+$legend-font-size: 1rem;
 
 // Tables
 
@@ -37,7 +173,14 @@ $enable-negative-margins: true;
 
 // Buttons
 
+$btn-font-weight: bold;
+
 // Forms
+
+$form-text-margin-top: 0.5rem;
+
+$form-label-margin-bottom: 0.5rem;
+$form-label-font-weight: bold;
 
 // Form validation
 
