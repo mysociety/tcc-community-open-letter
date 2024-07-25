@@ -2,5 +2,6 @@
     td:first-child,
     th:first-child {
         padding-left: 0 !important;
+        transition: padding-left 100ms linear;
     }
 }

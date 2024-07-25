@@ -1,0 +1,140 @@
+tr[data-signatory] {
+    cursor: pointer;
+
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        font-size: 1em;
+        line-height: inherit;
+        text-align: inherit;
+    }
+
+    &:hover,
+    &:has(button:focus) {
+        td {
+            --#{$prefix}table-bg: #{transparentize($green-100, 0.5)};
+        }
+
+        td:first-child {
+            padding-left: $table-cell-padding-x !important;
+        }
+    }
+}
+
+.fake-link {
+    color: rgba(var(--#{$prefix}link-color-rgb), var(--#{$prefix}link-opacity, 1));
+    text-decoration: $link-decoration;
+    cursor: pointer;
+
+    &:hover {
+        --#{$prefix}link-color-rgb: var(--#{$prefix}link-hover-color-rgb);
+        text-decoration: $link-hover-decoration;
+    }
+}
+
+#inspector {
+    --#{$prefix}offcanvas-width: 90vw;
+    --#{$prefix}offcanvas-padding-x: 1rem;
+    --#{$prefix}offcanvas-padding-y: 1rem;
+
+    @include media-breakpoint-up('sm') {
+        --#{$prefix}offcanvas-width: 75vw;
+    }
+
+    @include media-breakpoint-up('md') {
+        --#{$prefix}offcanvas-width: 66vw;
+        --#{$prefix}offcanvas-padding-x: 1.25rem;
+        --#{$prefix}offcanvas-padding-y: 1.25rem;
+    }
+
+    @include media-breakpoint-up('lg') {
+        --#{$prefix}offcanvas-width: 50vw;
+        --#{$prefix}offcanvas-padding-x: 1.5rem;
+        --#{$prefix}offcanvas-padding-y: 1.5rem;
+    }
+
+    #inspectorEdit {
+        display: none;
+    }
+
+    &.editing {
+        #inspectorCurrent {
+            display: none;
+        }
+
+        #inspectorEdit {
+            display: block;
+        }
+    }
+}
+
+.constituency-list {
+    --border-color: #ddd;
+    @include list-unstyled();
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border-color);
+
+    li {
+        position: relative;
+        padding: 0.75rem 0 0.75rem 1.75rem;
+        line-height: 1.2;
+        border-top: 1px solid var(--border-color);
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 1rem;
+            display: block;
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 0.1rem;
+            background-color: $green-500;
+        }
+    }
+
+    small {
+        font-size: 1em;
+        opacity: 0.5;
+
+        &:before {
+            content: "/";
+            margin: 0 0.25em;
+        }
+    }
+}
+
+#inspectorMap {
+    background: $blue-100;
+    height: 40vh;
+    flex: 0 0 auto;
+}
+
+.leaflet-overlay-pane {
+    mix-blend-mode: multiply;
+
+    .leaflet-interactive {
+        cursor: -webkit-grab;
+        cursor:    -moz-grab;
+        cursor: grab;
+
+        .editing & {
+            cursor: pointer;
+        }
+    }
+}
+
+.editing .leaflet-tile-pane {
+    filter: grayscale(0.8);
+}
+
+.leaflet-container {
+    font-family: var(--#{prefix}body-font-family);
+}
+
+.leaflet-tooltip {
+    line-height: 1.2;
+}

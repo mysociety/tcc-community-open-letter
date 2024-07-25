@@ -31,8 +31,8 @@ layout: default
         </thead>
         <tbody>
           {% for row in site.data.signatories %}
-            <tr>
-                <td>{{ row.signatory}}</td>
+            <tr data-signatory="{{ row.signatory }}">
+                <td><button class="fake-link">{{ row.signatory}}</button></td>
                 <td>{{ row.constituency_name }}</td>
                 <td>{{ row.mp_name }}, {{ row.mp_party }}</td>
             </tr>
@@ -42,5 +42,53 @@ layout: default
     <div class="bg-green-100 p-3 p-sm-4 rounded mw-40rem">
         <h2 class="mb-4 h4">Do we have the wrong location for your group?</h2>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwTS3Mn9g5EOCBcFPF1uCXTbIJ69Tu5NA2kjUR0n-Hc1Knkw/viewform?usp=pp_url&entry.496009622={{ 'https://pages.mysociety.org/tcc-community-open-letter/' | url_encode }}" class="btn btn-primary btn-lg">Let us know</a>
+    </div>
+</div>
+
+<div id="inspector" class="offcanvas offcanvas-end" tabindex="-1" aria-labelledby="inspectorTitle">
+    <div class="offcanvas-header">
+        <h2 class="h5 lh-1 offcanvas-title" id="inspectorTitle">Inspector</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div id="inspectorMap"></div>
+    <div class="offcanvas-body">
+        <div id="inspectorCurrent">
+            <h3 class="h6 mb-3">We think your organisation is active in:</h3>
+            <ul class="constituency-list mb-4"></ul>
+            <div class="d-flex gap-3 flex-wrap">
+                <button id="inspectorApprove" class="btn btn-lg btn-success flex-grow-1 d-flex align-items-center justify-content-center gap-2 js-save-form" data-bs-dismiss="offcanvas">
+                    {% include check.html %}
+                    This is correct
+                </button>
+                <button id="inspectorReject" class="btn btn-lg btn-danger flex-grow-1 d-flex align-items-center justify-content-center gap-2">
+                    {% include cross.html %}
+                    This is incorrect
+                </button>
+            </div>
+        </div>
+        <form id="inspectorEdit" method="GET" action="https://docs.google.com/forms/d/e/1FAIpQLSe9RpwUqYfVxRIletT-wGb2fzMq6E6BhSUEw_rKA4MQ_1pFmg/formResponse">
+            <div class="mb-3 mw-35rem">
+                <h3 class="form-label fs-6 mb-3">Selected constituencies</h3>
+                <ul class="constituency-list mb-2"></ul>
+                <p class="form-text mt-0">Add or remove constituencies by clicking them on the map.</p>
+            </div>
+            <div class="mb-3 mw-35rem">
+                <label for="inspectorInputName" class="form-label">Your name</label>
+                <input type="text" id="inspectorInputName" name="entry.812523068" class="form-control">
+            </div>
+            <div class="mb-3 mw-35rem">
+                <label for="inspectorInputEmail" class="form-label">Your email address</label>
+                <input type="text" id="inspectorInputEmail" name="entry.1669677825" aria-describedby="inspectorHelpEmail" class="form-control">
+                <p id="inspectorHelpEmail" class="form-text">We’ll only use this if we have any follow-up questions about your submission.</p>
+            </div>
+            <input type="hidden" id="inspectorInputVerdict" name="entry.1170958178">
+            <input type="hidden" id="inspectorInputConstituenciesRaw" name="entry.262646585">
+            <input type="hidden" id="inspectorInputSignatory" name="entry.1891226097">
+            <input type="hidden" name="submit" value="Submit">
+            <div class="d-flex align-items-center flex-wrap gap-4 mt-4">
+                <button type="button" class="btn btn-lg btn-success js-save-form" data-bs-dismiss="offcanvas">Submit changes</button>
+                <button type="button" class="btn btn-lg btn-link" id="inspectorCancelEdit">Cancel</button>
+            </div>
+        </form>
     </div>
 </div>

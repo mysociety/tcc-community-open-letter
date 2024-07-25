@@ -6,15 +6,19 @@
     <meta name="viewport" content="initial-scale=1, viewport-fit=cover">
     <title>{{ page.title | default: site.title | escape }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;0,800;1,400&amp;display=swap">
+    <link rel="stylesheet" href="{{ '/static/vendor/leaflet/leaflet.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/static/css/all.css' | relative_url }}">
     <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
     <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
 </head>
 <body>
     {{ content }}
+    <script>window.baseurl = "{{ site.baseurl }}";</script>
     <script src="{{ '/static/vendor/jquery/js/jquery-3.7.1.min.js' | relative_url }}"></script>
     <script src="{{ '/static/vendor/underscore/js/underscore-1.13.6.min.js' | relative_url }}"></script>
     <script src="{{ '/static/vendor/bootstrap/js/bootstrap-5.3.3.bundle.min.js' | relative_url }}"></script>
+    <script src="{{ '/static/vendor/leaflet/leaflet-1.9.4.min.js' | relative_url }}"></script>
+    <script src="{{ '/static/js/signatories.js' | relative_url }}"></script>
     <script src="{{ '/static/js/main.js' | relative_url }}"></script>
 </body>
 </html>
