@@ -1,0 +1,13 @@
+.site-footer {
+    --bs-link-color: #{$white};
+    --bs-link-hover-color: #{$teal-200};
+    color: $white;
+    background-color: $teal-800;
+    box-shadow: 0 1000px 0 1000px $teal-800;
+    min-height: 10rem;
+
+    svg {
+        max-width: 7em;
+        height: auto;
+    }
+}
