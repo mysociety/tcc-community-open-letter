@@ -21,24 +21,26 @@ layout: default
             <input type="search" id="search" class="form-control form-control-lg">
         </div>
     </div>
-    <table class="table my-4 my-sm-5 w-100" id="signatories">
-        <thead>
-            <tr>
-                <th scope="col">Signatory organisation</th>
-                <th scope="col">Constituency</th>
-                <th scope="col">MP</th>
-            </tr>
-        </thead>
-        <tbody>
-          {% for row in site.data.signatories %}
-            <tr data-signatory="{{ row.signatory }}">
-                <td><button class="fake-link">{{ row.signatory}}</button></td>
-                <td>{{ row.constituency_name }}</td>
-                <td>{{ row.mp_name }}, {{ row.mp_party }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-    </table>
+    <div class="table-responsive my-4 my-sm-5">
+        <table class="table w-100" id="signatories">
+            <thead>
+                <tr>
+                    <th scope="col">Signatory organisation</th>
+                    <th scope="col">Constituency</th>
+                    <th scope="col">MP</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for row in site.data.signatories %}
+                <tr data-signatory="{{ row.signatory }}">
+                    <td><button class="fake-link">{{ row.signatory}}</button></td>
+                    <td>{{ row.constituency_name }}</td>
+                    <td>{{ row.mp_name }}, {{ row.mp_party }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <div class="bg-green-100 p-3 p-sm-4 rounded mw-40rem">
         <h2 class="mb-4 h4">Do we have the wrong location for your group?</h2>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwTS3Mn9g5EOCBcFPF1uCXTbIJ69Tu5NA2kjUR0n-Hc1Knkw/viewform?usp=pp_url&entry.496009622={{ 'https://pages.mysociety.org/tcc-community-open-letter/' | url_encode }}" class="btn btn-primary btn-lg">Let us know</a>
